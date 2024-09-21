@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  urbit:
+    image: tloncorp/vere
+    ports:
+      - "8080:80"
+      - "34343:34343/udp"
+    volumes:
+      - ./urbit/urbit
+    command: /bin/start-urbit --port=34343 --http-port=80 --loom=31
+    restart: unless-stopped
